@@ -11,6 +11,18 @@ Summary: A package for solving ordinary differential equations and differential 
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/assimulo-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/assimulo-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/assimulo-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/assimulo-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/assimulo-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/assimulo-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/assimulo/badges/version.svg)](https://anaconda.org/conda-forge/assimulo)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/assimulo/badges/downloads.svg)](https://anaconda.org/conda-forge/assimulo)
+
 Installing assimulo
 ===================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `assimulo` available on your platf
 ```
 conda search assimulo --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/assimulo-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/assimulo-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/assimulo-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/assimulo-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/assimulo-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/assimulo-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/assimulo/badges/version.svg)](https://anaconda.org/conda-forge/assimulo)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/assimulo/badges/downloads.svg)](https://anaconda.org/conda-forge/assimulo)
 
 
 Updating assimulo-feedstock
