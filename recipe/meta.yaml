@@ -1,8 +1,8 @@
 {% set version = "2.9" %}
 
 package:
-    name: assimulo
-    version: {{ version }}
+  name: assimulo
+  version: {{ version }}
 
 source:
   fn: Assimulo-{{ version }}.zip
@@ -13,11 +13,11 @@ source:
     - disable-fortran-extensions.patch  # [win or osx]
 
 build:
-  number: 0
+  number: 1
   features:
   - vc9  # [win and py27]
   - vc10  # [win and py34]
-  - vc14  # [win and py35]
+  - vc14  # [win and py>=35]
 
 requirements:
   build:
@@ -32,13 +32,15 @@ requirements:
     - scipy
     - matplotlib
     - sundials
+    - libgcc  # [unix]
 
 test:
   imports:
     - assimulo
-
+    - assimulo.solvers  # [linux]
   requires:
-      - nose
+    - nose
+
 about:
   home: http://www.jmodelica.org/assimulo
   license: LGPLv3
