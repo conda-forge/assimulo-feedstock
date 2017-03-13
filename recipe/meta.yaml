@@ -13,7 +13,7 @@ source:
     - disable-fortran-extensions.patch  # [win or osx]
 
 build:
-  number: 1
+  number: 2
   features:
   - vc9  # [win and py27]
   - vc10  # [win and py34]
@@ -37,7 +37,7 @@ requirements:
 test:
   imports:
     - assimulo
-    - assimulo.solvers  # [linux]
+    - assimulo.solvers
   requires:
     - nose
 
