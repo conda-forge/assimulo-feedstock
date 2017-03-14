@@ -1,5 +1,9 @@
 #!/bin/sh
 
-PY_LIB=`find ${PREFIX}/lib -name libpython${PY_VER}*${SHLIB_EXT}`
+if test `uname` = "Darwin"
+then
+  # copy instead of patching because of problematic line endings
+  cp ${RECIPE_DIR}/assimulo.solvers.__init__.py assimulo/solvers/__init__.py
+fi
 
-${PYTHON} setup.py install --extra-fortran-link-flags=${PY_LIB} --sundials-home=${PREFIX}
+${PYTHON} setup.py install --sundials-home=${PREFIX}
