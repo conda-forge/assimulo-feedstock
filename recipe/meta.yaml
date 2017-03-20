@@ -11,9 +11,11 @@ source:
   patches:
     # no fortran compiler on windows, unsupported on osx
     - disable-fortran-extensions.patch  # [win or osx]
+    # avoid Glimda print to stdout
+    - glimda-stderr.patch
 
 build:
-  number: 2
+  number: 3
   features:
   - vc9  # [win and py27]
   - vc10  # [win and py34]
@@ -43,7 +45,7 @@ test:
 
 about:
   home: http://www.jmodelica.org/assimulo
-  license: LGPLv3
+  license: LGPL3
   summary: A package for solving ordinary differential equations and differential algebraic equations.
 
 extra:
