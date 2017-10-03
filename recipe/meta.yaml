@@ -15,22 +15,23 @@ source:
     - glimda-stderr.patch
 
 build:
-  number: 3
+  number: 4
   features:
-  - vc9  # [win and py27]
-  - vc10  # [win and py34]
-  - vc14  # [win and py>=35]
+    - vc9  # [win and py27]
+    - vc14  # [win and py>=35]
 
 requirements:
   build:
     - python
-    - numpy x.x
+    - numpy 1.9.*  # [not (win and py36)]
+    - numpy 1.11.*  # [win and py36]
     - cython
     - sundials
     - gcc  # [unix]
   run:
     - python
-    - numpy x.x
+    - numpy >=1.9  # [not (win and py36)]
+    - numpy >=1.11  # [win and py36]
     - scipy
     - matplotlib
     - sundials
