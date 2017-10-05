@@ -14,9 +14,9 @@ Summary: A package for solving ordinary differential equations and differential 
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/assimulo-feedstock-jschueller-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/assimulo-feedstock-jschueller-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/assimulo-feedstock-jschueller-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/assimulo-feedstock-jschueller-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/assimulo-feedstock-jschueller-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/assimulo-feedstock-jschueller-feedstock/branch/master)
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/assimulo-feedstock-jschueller-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/assimulo-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/assimulo-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/assimulo-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/assimulo-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/assimulo-feedstock/branch/master)
 
 Current release info
 ====================
