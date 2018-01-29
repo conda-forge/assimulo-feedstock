@@ -6,7 +6,7 @@ package:
 
 source:
   fn: Assimulo-{{ version }}.zip
-  url: https://pypi.python.org/packages/4c/c0/19a54949817204313efff9f83f1e4a247edebed0a1cc5a317a95d3f374ae/Assimulo-{{ version }}.zip
+  url: https://pypi.io/packages/source/A/Assimulo/Assimulo-{{ version }}.zip
   md5: 3f28fd98011d2ec7a01703a1ef1dff45
   patches:
     # no fortran compiler on windows, unsupported on osx
