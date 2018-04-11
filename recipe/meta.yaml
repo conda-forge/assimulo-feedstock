@@ -15,7 +15,7 @@ source:
     - glimda-stderr.patch
 
 build:
-  number: 5
+  number: 6
   features:
     - vc9  # [win and py27]
     - vc14  # [win and py>=35]
