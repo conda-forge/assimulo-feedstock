@@ -10,7 +10,7 @@ source:
   md5: 3f28fd98011d2ec7a01703a1ef1dff45
   patches:
     # no fortran compiler on windows, unsupported on osx
-    - disable-fortran-extensions.patch  # [win or osx]
+    - disable-fortran-extensions.patch
     # avoid Glimda print to stdout
     - glimda-stderr.patch
 
