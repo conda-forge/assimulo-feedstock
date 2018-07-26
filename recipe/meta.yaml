@@ -10,32 +10,30 @@ source:
   md5: 3f28fd98011d2ec7a01703a1ef1dff45
   patches:
     # no fortran compiler on windows, unsupported on osx
-    - disable-fortran-extensions.patch  # [win or osx]
+    - disable-fortran-extensions.patch
     # avoid Glimda print to stdout
     - glimda-stderr.patch
 
 build:
-  number: 6
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and py>=35]
+  number: 7
 
 requirements:
   build:
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+  host:
     - python
-    - numpy 1.9.*  # [not (win and py36)]
-    - numpy 1.11.*  # [win and py36]
+    - numpy        # [not (win and py36)]
+    - numpy         # [win and py36]
     - cython
-    - sundials 2.7.*
-    - gcc  # [unix]
+    - sundials
   run:
     - python
-    - numpy >=1.9  # [not (win and py36)]
-    - numpy >=1.11  # [win and py36]
+    - {{ pin_compatible('numpy') }}   # [not (win and py36)]
+    - {{ pin_compatible('numpy') }}   # [win and py36]
     - scipy
     - matplotlib
-    - sundials 2.7.*
-    - libgcc  # [unix]
+    - sundials
 
 test:
   imports:

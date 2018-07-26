@@ -1,0 +1,19 @@
+c_compiler:
+- vs2008
+fortran_compiler:
+- flang
+numpy:
+- '1.11'
+pin_run_as_build:
+  python:
+    max_pin: x.x
+    min_pin: x.x
+  sundials:
+    max_pin: x.x
+python:
+- '2.7'
+sundials:
+- '2.7'
+zip_keys:
+- - python
+  - c_compiler
