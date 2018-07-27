@@ -19,7 +19,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not (win and vc<14)]
+    - {{ compiler('fortran') }}  # [linux]
     - {{ compiler('c') }}
   host:
     - python
