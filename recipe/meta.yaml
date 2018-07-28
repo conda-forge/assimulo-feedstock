@@ -7,35 +7,31 @@ package:
 source:
   fn: Assimulo-{{ version }}.zip
   url: https://pypi.io/packages/source/A/Assimulo/Assimulo-{{ version }}.zip
-  md5: 3f28fd98011d2ec7a01703a1ef1dff45
+  sha256: e61f5278618f3c2c920c0ef758eae0ae9a0538240d0ceaaae06b5dadff35aa2e
   patches:
-    # no fortran compiler on windows, unsupported on osx
-    - disable-fortran-extensions.patch  # [win or osx]
+    # no fortran compiler on vc9, unsupported on osx
+    - disable-fortran-extensions.patch  # [osx]
     # avoid Glimda print to stdout
     - glimda-stderr.patch
 
 build:
-  number: 6
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and py>=35]
+  number: 7
 
 requirements:
   build:
+    - {{ compiler('fortran') }}  # [linux]
+    - {{ compiler('c') }}
+  host:
     - python
-    - numpy 1.9.*  # [not (win and py36)]
-    - numpy 1.11.*  # [win and py36]
+    - numpy
     - cython
     - sundials 2.7.*
-    - gcc  # [unix]
   run:
     - python
-    - numpy >=1.9  # [not (win and py36)]
-    - numpy >=1.11  # [win and py36]
+    - {{ pin_compatible('numpy') }}
     - scipy
     - matplotlib
     - sundials 2.7.*
-    - libgcc  # [unix]
 
 test:
   imports:
