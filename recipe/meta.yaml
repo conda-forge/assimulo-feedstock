@@ -24,7 +24,7 @@ source:
     - r845.patch  # [unix]
 
 build:
-  number: 8
+  number: 1008
 
 requirements:
   build:
