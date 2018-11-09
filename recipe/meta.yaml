@@ -11,11 +11,20 @@ source:
   patches:
     # no fortran compiler on vc9, unsupported on osx
     - disable-fortran-extensions.patch  # [osx]
-    # avoid Glimda print to stdout
-    - glimda-stderr.patch
+
+    # sundials 3.1 support: https://trac.jmodelica.org/assimulo/changeset/845
+    - r831.patch
+    - r833.patch
+    - r836.patch
+    - r837.patch
+    - r838.patch
+    - r839.patch
+    - r840.patch
+    - r841.patch
+    - r845.patch
 
 build:
-  number: 7
+  number: 8
 
 requirements:
   build:
@@ -25,13 +34,13 @@ requirements:
     - python
     - numpy
     - cython
-    - sundials 2.7.*
+    - sundials 3.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - matplotlib
-    - sundials 2.7.*
+    - sundials 3.*
 
 test:
   imports:
