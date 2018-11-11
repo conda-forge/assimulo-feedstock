@@ -13,15 +13,15 @@ source:
     - disable-fortran-extensions.patch  # [osx]
 
     # sundials 3.1 support: https://trac.jmodelica.org/assimulo/changeset/845
-    - r831.patch
-    - r833.patch
-    - r836.patch
-    - r837.patch
-    - r838.patch
-    - r839.patch
-    - r840.patch
-    - r841.patch
-    - r845.patch
+    - r831.patch  # [unix]
+    - r833.patch  # [unix]
+    - r836.patch  # [unix]
+    - r837.patch  # [unix]
+    - r838.patch  # [unix]
+    - r839.patch  # [unix]
+    - r840.patch  # [unix]
+    - r841.patch  # [unix]
+    - r845.patch  # [unix]
 
 build:
   number: 8
