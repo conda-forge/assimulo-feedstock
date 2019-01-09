@@ -24,7 +24,7 @@ source:
     - r845.patch  # [unix]
 
 build:
-  number: 1008
+  number: 1009
 
 requirements:
   build:
@@ -33,15 +33,16 @@ requirements:
   host:
     - msinttypes  # [win and py27]
     - python
+    - pip
     - numpy
     - cython
-    - sundials
+    - sundials 3.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - matplotlib
-    - sundials
+    - sundials 3.*
 
 test:
   imports:
