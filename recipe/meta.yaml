@@ -11,9 +11,11 @@ source:
   patches:
     # no fortran compiler on vc9, unsupported on osx
     - disable-fortran-extensions.patch  # [osx]
+    # find blas with dynamic extension
+    - blas_shared.patch
 
 build:
-  number: 1000
+  number: 1001
 
 requirements:
   build:
@@ -37,12 +39,13 @@ test:
   imports:
     - assimulo
     - assimulo.solvers
+    - assimulo.examples
   requires:
     - nose
 
 about:
   home: http://www.jmodelica.org/assimulo
-  license: LGPL3
+  license: LGPL
   summary: A package for solving ordinary differential equations and differential algebraic equations.
 
 extra:
