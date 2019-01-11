@@ -45,6 +45,7 @@ install:
     - cmd: setup_conda_rc .\ .\recipe .\.ci_support\%CONFIG%.yaml
     - cmd: run_conda_forge_build_setup
     - cmd: conda.exe remove -y --force vc
+    - cmd: rmdir /s /q C:\Users\appveyor\AppData\Local\Programs\Common\Microsoft
 
 # Skip .NET project specific build phase.
 build: off
