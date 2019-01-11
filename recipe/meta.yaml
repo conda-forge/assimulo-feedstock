@@ -9,17 +9,15 @@ source:
   url: https://github.com/modelon/Assimulo/archive/Assimulo-{{ version }}.tar.gz
   sha256: 6a1437af8ea0c9af3c0afa1efb44f5d1e11edfec1250ce3510f9e33397a04e6b
   patches:
-    # no fortran compiler on vc9, unsupported on osx
-    - disable-fortran-extensions.patch  # [osx]
     # find blas with dynamic extension
     - blas_shared.patch
 
 build:
-  number: 1001
+  number: 1002
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [linux]
+    - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('c') }}
   host:
     - msinttypes  # [win and py27]
