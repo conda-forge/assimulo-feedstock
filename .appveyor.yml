@@ -46,6 +46,7 @@ install:
     - cmd: run_conda_forge_build_setup
     - cmd: conda.exe remove -y --force vc
     - cmd: rmdir /s /q C:\Users\appveyor\AppData\Local\Programs\Common\Microsoft
+    - cmd: rmdir /s /q "C:\Program Files (x86)\Microsoft Visual Studio*"
 
 # Skip .NET project specific build phase.
 build: off
