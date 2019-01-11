@@ -8,6 +8,8 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+fortran_compiler:
+- toolchain_fort
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -22,6 +24,7 @@ python:
 - '3.6'
 zip_keys:
 - - c_compiler
+  - fortran_compiler
   - channel_sources
   - channel_targets
   - build_number_decrement
