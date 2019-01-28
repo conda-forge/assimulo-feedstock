@@ -11,9 +11,11 @@ source:
   patches:
     # find blas with dynamic extension
     - blas_shared.patch
+    # https://github.com/modelon/Assimulo/pull/3
+    - 0001-Dont-output-to-stdout-on-solver-ImportError.patch
 
 build:
-  number: 1002
+  number: 1003
 
 requirements:
   build:

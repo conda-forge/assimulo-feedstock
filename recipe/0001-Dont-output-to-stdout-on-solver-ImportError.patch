@@ -1,0 +1,55 @@
+From 2167061532a19d4a80ef454aea561b9bf66a593f Mon Sep 17 00:00:00 2001
+From: Julien Schueller <schueller@phimeca.com>
+Date: Mon, 28 Jan 2019 12:08:17 +0100
+Subject: [PATCH] Dont output to stdout on solver ImportError
+
+---
+ src/solvers/radar5.py     | 3 ++-
+ src/solvers/sdirk_dae.pyx | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/solvers/radar5.py b/src/solvers/radar5.py
+index 301cbbd..a43d8cd 100644
+--- a/src/solvers/radar5.py
++++ b/src/solvers/radar5.py
+@@ -19,6 +19,7 @@ import numpy as N
+ import scipy as S
+ import scipy.linalg as LIN
+ import copy
++import sys
+ 
+ from assimulo.exception import *
+ from assimulo.ode import *
+@@ -29,7 +30,7 @@ from assimulo.implicit_ode import Implicit_ODE
+ try:
+     from assimulo.lib import radar5
+ except ImportError:
+-    print("Could not find RADAR5")
++    sys.stderr.write("Could not find RADAR5\n")
+ 
+ class Radar_Exception(Exception):
+     pass
+diff --git a/src/solvers/sdirk_dae.pyx b/src/solvers/sdirk_dae.pyx
+index af3c872..1dd042a 100644
+--- a/src/solvers/sdirk_dae.pyx
++++ b/src/solvers/sdirk_dae.pyx
+@@ -16,6 +16,7 @@
+ # along with this program. If not, see <http://www.gnu.org/licenses/>.
+ 
+ import numpy as N
++import sys
+ 
+ from assimulo.exception import *
+ from assimulo.ode import *
+@@ -26,7 +27,7 @@ try:
+     from assimulo.lib.odepack import dlsodar, dcfode, dintdy
+     from assimulo.lib.odepack import set_lsod_common, get_lsod_common
+ except ImportError:
+-    print "Could not find ODEPACK functions"
++    sys.stderr.write("Could not find ODEPACK functions\n")
+ 
+ class SDIRK_DAE(Implicit_ODE):
+     """
+-- 
+2.17.1
+
