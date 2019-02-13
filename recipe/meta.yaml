@@ -15,7 +15,7 @@ source:
     - 0001-Dont-output-to-stdout-on-solver-ImportError.patch
 
 build:
-  number: 1003
+  number: 1004
 
 requirements:
   build:
@@ -27,13 +27,13 @@ requirements:
     - pip
     - numpy
     - cython
-    - sundials 3.*
+    - sundials
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - matplotlib
-    - sundials 3.*
+    - sundials
 
 test:
   imports:
