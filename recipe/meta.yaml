@@ -29,14 +29,14 @@ requirements:
     - numpy  # [unix]
     - numpy >=1.13  # [win]
     - cython
-    - sundials
+    - sundials  # [unix]
   run:
     - python
     - {{ pin_compatible('numpy') }}  # [unix]
     - numpy >=1.13  # [win]
     - scipy
     - matplotlib
-    - sundials
+    - sundials  # [unix]
 
 test:
   imports:

@@ -14,5 +14,5 @@ echo compiler=mingw32 >> "%CFG%"
 rem force cython rebuild
 del assimulo\*.c assimulo\solvers\*.c
 
-"%PYTHON%" setup.py install --sundials-home=%LIBRARY_PREFIX%
+"%PYTHON%" setup.py install
 if errorlevel 1 exit 1
