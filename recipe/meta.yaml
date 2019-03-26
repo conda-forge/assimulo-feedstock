@@ -26,13 +26,14 @@ requirements:
   host:
     - python
     - pip
-    - numpy
+    - numpy  # [unix]
     - numpy >=1.13  # [win]
     - cython
     - sundials
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('numpy') }}  # [unix]
+    - numpy >=1.13  # [win]
     - scipy
     - matplotlib
     - sundials
