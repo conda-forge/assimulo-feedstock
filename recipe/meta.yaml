@@ -15,14 +15,15 @@ source:
     - 0001-Dont-output-to-stdout-on-solver-ImportError.patch
 
 build:
-  number: 1004
+  number: 1005
 
 requirements:
   build:
     - {{ compiler('fortran') }}  # [unix]
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}  # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('m2w64_fortran') }}  # [win]
   host:
-    - msinttypes  # [win and py27]
     - python
     - pip
     - numpy
