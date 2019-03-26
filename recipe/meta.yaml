@@ -27,6 +27,7 @@ requirements:
     - python
     - pip
     - numpy
+    - numpy >=1.13  # [win]
     - cython
     - sundials
   run:
