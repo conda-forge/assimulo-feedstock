@@ -19,7 +19,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('fortran') }}
     - {{ compiler('c') }}
   host:
     - msinttypes  # [win and py27]
