@@ -23,6 +23,7 @@ requirements:
     - {{ compiler('c') }}
   host:
     - msinttypes  # [win and py27]
+    - liblapack  # [unix]
     - python
     - pip
     - numpy
