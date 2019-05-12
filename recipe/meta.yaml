@@ -15,7 +15,7 @@ source:
     - 0001-Dont-output-to-stdout-on-solver-ImportError.patch
 
 build:
-  number: 1004
+  number: 1006
 
 requirements:
   build:
@@ -23,6 +23,7 @@ requirements:
     - {{ compiler('c') }}
   host:
     - msinttypes  # [win and py27]
+    - liblapack  # [unix]
     - python
     - pip
     - numpy
