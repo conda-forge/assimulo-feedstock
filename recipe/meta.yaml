@@ -28,7 +28,7 @@ requirements:
     - libblas  # [unix]
     - python
     - pip
-    - numpy
+    #- numpy
     - cython
     #- sundials
   run:
