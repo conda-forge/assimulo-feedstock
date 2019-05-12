@@ -30,13 +30,13 @@ requirements:
     - pip
     - numpy
     - cython
-    - sundials
+    #- sundials
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - matplotlib
-    - sundials
+    #- sundials
 
 test:
   imports:
