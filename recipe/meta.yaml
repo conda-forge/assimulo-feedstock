@@ -24,6 +24,8 @@ requirements:
   host:
     - msinttypes  # [win and py27]
     - liblapack  # [unix]
+    - libcblas  # [unix]
+    - libblas  # [unix]
     - python
     - pip
     - numpy
