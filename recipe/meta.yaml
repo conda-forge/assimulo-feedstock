@@ -5,7 +5,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: Assimulo-{{ version }}.tar.gz
   url: https://github.com/modelon/Assimulo/archive/Assimulo-{{ version }}.tar.gz
   sha256: 6a1437af8ea0c9af3c0afa1efb44f5d1e11edfec1250ce3510f9e33397a04e6b
   patches:
