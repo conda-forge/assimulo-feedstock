@@ -1,20 +1,19 @@
-{% set version = "3.0" %}
+{% set version = "3.1" %}
 
 package:
   name: assimulo
   version: {{ version }}
 
 source:
-  url: https://github.com/modelon/Assimulo/archive/Assimulo-{{ version }}.tar.gz
-  sha256: 6a1437af8ea0c9af3c0afa1efb44f5d1e11edfec1250ce3510f9e33397a04e6b
+  svn_url: https://svn.jmodelica.org/assimulo/tags/Assimulo-{{ version }}
   patches:
     # find blas with dynamic extension
     - blas_shared.patch
-    # https://github.com/modelon/Assimulo/pull/3
-    - 0001-Dont-output-to-stdout-on-solver-ImportError.patch
+    # sundials 5.x
+    - sundials5.patch
 
 build:
-  number: 1007
+  number: 0
 
 requirements:
   build:
