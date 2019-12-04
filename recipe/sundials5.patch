@@ -1,8 +1,8 @@
-Index: setup.py
-===================================================================
---- setup.py	(revision 900)
-+++ setup.py	(working copy)
-@@ -378,7 +378,7 @@
+diff --git a/setup.py b/setup.py
+index d5af8fc..f1e4233 100644
+--- a/setup.py
++++ b/setup.py
+@@ -333,7 +333,7 @@ class Assimulo_prepare(object):
                      with open(os.path.join(os.path.join(self.incdirs,'sundials'), 'sundials_config.h')) as f:
                          for line in f:
                              if "SUNDIALS_PACKAGE_VERSION" in line or "SUNDIALS_VERSION" in line:
@@ -11,11 +11,11 @@ Index: setup.py
                                  L.debug('SUNDIALS %d.%d found.'%(sundials_version[0], sundials_version[1]))
                                  break
                      with open(os.path.join(os.path.join(self.incdirs,'sundials'), 'sundials_config.h')) as f:
-Index: src/lib/sundials_includes.pxd
-===================================================================
---- src/lib/sundials_includes.pxd	(revision 900)
-+++ src/lib/sundials_includes.pxd	(working copy)
-@@ -190,8 +190,10 @@
+diff --git a/src/lib/sundials_includes.pxd b/src/lib/sundials_includes.pxd
+index 20dac61..934fa6a 100644
+--- a/src/lib/sundials_includes.pxd
++++ b/src/lib/sundials_includes.pxd
+@@ -190,8 +190,10 @@ cdef extern from "sundials/sundials_direct.h":
          realtype **cols
      ctypedef _DlsMat* DlsMat
      cdef realtype* DENSE_COL(DlsMat A, int j)
@@ -28,11 +28,11 @@ Index: src/lib/sundials_includes.pxd
      cdef extern from "sundials/sundials_sparse.h":
          cdef struct _SlsMat:
              int M
-Index: src/solvers/kinsol.pyx
-===================================================================
---- src/solvers/kinsol.pyx	(revision 900)
-+++ src/solvers/kinsol.pyx	(working copy)
-@@ -31,7 +31,9 @@
+diff --git a/src/solvers/kinsol.pyx b/src/solvers/kinsol.pyx
+index 2ea6102..3f7b980 100644
+--- a/src/solvers/kinsol.pyx
++++ b/src/solvers/kinsol.pyx
+@@ -31,7 +31,9 @@ cimport sundials_includes as SUNDIALS
  
  #Various C includes transfered to namespace
  from sundials_includes cimport N_Vector, realtype, N_VectorContent_Serial, DENSE_COL, sunindextype
@@ -43,11 +43,11 @@ Index: src/solvers/kinsol.pyx
  from sundials_includes cimport malloc, free, N_VCloneVectorArray_Serial
  from sundials_includes cimport N_VConst_Serial, N_VDestroy_Serial
  
-Index: src/solvers/sundials.pyx
-===================================================================
---- src/solvers/sundials.pyx	(revision 900)
-+++ src/solvers/sundials.pyx	(working copy)
-@@ -35,7 +35,9 @@
+diff --git a/src/solvers/sundials.pyx b/src/solvers/sundials.pyx
+index a8db8c7..ac4c5a4 100644
+--- a/src/solvers/sundials.pyx
++++ b/src/solvers/sundials.pyx
+@@ -35,7 +35,9 @@ cimport sundials_includes as SUNDIALS
  
  #Various C includes transfered to namespace
  from sundials_includes cimport N_Vector, realtype, N_VectorContent_Serial, DENSE_COL, sunindextype

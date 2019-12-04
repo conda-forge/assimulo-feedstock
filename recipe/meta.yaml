@@ -5,12 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  svn_url: https://svn.jmodelica.org/assimulo/tags/Assimulo-{{ version }}
+  git_url: https://github.com/modelon/Assimulo.git
+  git_rev: 9a3b2781c7458b31c945fc9bffab3ca9d03ec090
   patches:
     # find blas with dynamic extension
     - blas_shared.patch
     # sundials 5.x
-    - sundials5.patch
+    - sundials5.patch  # [unix]
 
 build:
   number: 0
