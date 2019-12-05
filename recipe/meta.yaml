@@ -9,7 +9,7 @@ source:
   git_rev: 9a3b2781c7458b31c945fc9bffab3ca9d03ec090
   patches:
     # find blas with dynamic extension
-    - blas_shared.patch
+    - blas_shared.patch  # [unix]
     # sundials 5.x
     - sundials5.patch  # [unix]
 
