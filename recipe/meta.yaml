@@ -14,7 +14,7 @@ source:
     - sundials5.patch  # [unix]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -33,14 +33,12 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
-    - matplotlib
     - sundials
 
 test:
   imports:
     - assimulo
     - assimulo.solvers
-    - assimulo.examples
   requires:
     - nose
 
