@@ -10,12 +10,8 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
-  sundials:
-    max_pin: x.x
 python:
 - '2.7'
-sundials:
-- '3.2'
 zip_keys:
 - - python
   - c_compiler
