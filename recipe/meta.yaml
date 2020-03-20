@@ -1,12 +1,12 @@
-{% set version = "3.1" %}
+{% set version = "3.2" %}
 
 package:
   name: assimulo
   version: {{ version }}
 
 source:
-  git_url: https://github.com/modelon/Assimulo.git
-  git_rev: 9a3b2781c7458b31c945fc9bffab3ca9d03ec090
+  git_url: https://github.com/modelon-community/Assimulo.git
+  git_rev: 98af29e5d4e310524e4c0eafcb5b69276b29dfaf
   patches:
     # find blas with dynamic extension
     - blas_shared.patch  # [unix]
@@ -14,7 +14,7 @@ source:
     - sundials5.patch  # [unix]
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -44,7 +44,8 @@ test:
 
 about:
   home: http://www.jmodelica.org/assimulo
-  license: LGPL
+  license: LGPL-3.0-only
+  license_family: LGPL
   license_file: LICENSE
   summary: A package for solving ordinary differential equations and differential algebraic equations.
 
