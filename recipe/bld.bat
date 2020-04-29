@@ -15,6 +15,8 @@ if errorlevel 1 exit 1
 "%PYTHON%" setup.py install --sundials-home=%LIBRARY_PREFIX%
 if errorlevel 1 exit 1
 
+dir /p %PREFIX%
 dir /p %SP_DIR%
+dir /p %SP_DIR%\Assimulo-3.2-py3.7-win-amd64.egg
 if errorlevel 1 exit 1
 
