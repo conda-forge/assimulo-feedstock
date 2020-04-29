@@ -1,15 +1,12 @@
 
-rem patch -p1 -i %RECIPE_DIR%/sundials5.patch --binary
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
+:: sundials 5.x support
+git config --global user.email "you@example.com" && git config --global user.name "Your Name"
 git remote add js https://github.com/jschueller/Assimulo.git && git fetch js && git cherry-pick 0b07e2fd9f3810fe5ab72e477907e4b50618c1f3
-rem f613fd2639c52c94c4ad14e7402fb8b4543dd6fe
 if errorlevel 1 exit 1
 
-rem eol endings errors with recent conda build
-rem patch -p1 -i %RECIPE_DIR%/disable-fortran-extensions.patch --binary
+"%PYTHON%" setup.py install --sundials-home=%LIBRARY_PREFIX% --blas-home=%LIBRARY_PREFIX%\lib --lapack-home=%LIBRARY_PREFIX%\lib
 if errorlevel 1 exit 1
 
-"%PYTHON%" setup.py install --sundials-home=%LIBRARY_PREFIX%
+:: missing dlls
+xcopy %SP_DIR%\Assimulo-%PKG_VERSION%-py%PY_VER%-win-amd64.egg\assimulo\.libs\*.dll %SP_DIR%\Assimulo-%PKG_VERSION%-py%PY_VER%-win-amd64.egg\assimulo\lib
 if errorlevel 1 exit 1
-
