@@ -14,7 +14,7 @@ source:
     - sundials5.patch  # [unix]
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
