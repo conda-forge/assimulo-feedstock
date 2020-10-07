@@ -1,5 +1,6 @@
 {% set version = "3.2.3" %}
 
+
 package:
   name: assimulo
   version: {{ version }}
