@@ -1,4 +1,4 @@
-{% set version = "3.2" %}
+{% set version = "3.2.3" %}
 
 package:
   name: assimulo
@@ -6,15 +6,13 @@ package:
 
 source:
   git_url: https://github.com/modelon-community/Assimulo.git
-  git_rev: 98af29e5d4e310524e4c0eafcb5b69276b29dfaf
+  git_rev: 2d83a3ed1bbe1d2dc543edca8d81a9f6297ac6fd
   patches:
-    # find blas with dynamic extension
-    - blas_shared.patch  # [unix]
     # sundials 5.x
     - sundials5.patch  # [unix]
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
