@@ -1,4 +1,4 @@
-{% set version = "3.2.7" %}
+{% set version = "3.2.8" %}
 
 
 package:
@@ -6,14 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/modelon-community/Assimulo.git
-  git_rev: f6c2f3de354f6416065a5504ca7c117798e2b5f9
-  patches:
-    # sundials 5.x
-    - sundials5.patch  # [unix]
+  url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
+  sha256: 4f99515d959add3dffa0d28808e3f3490aa13c648b0f372cd05f22c1afb78931
+
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
