@@ -25,7 +25,7 @@ requirements:
     - pip
     - numpy
     - cython
-    - sundials  # <6
+    - sundials 5.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
