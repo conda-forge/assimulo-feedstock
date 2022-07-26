@@ -3,5 +3,6 @@
 if errorlevel 1 exit 1
 
 :: missing dlls
-xcopy %SP_DIR%\Assimulo-%PKG_VERSION%-py%PY_VER%-win-amd64.egg\assimulo\.libs\*.dll %SP_DIR%\Assimulo-%PKG_VERSION%-py%PY_VER%-win-amd64.egg\assimulo\lib
+xcopy %SP_DIR%\assimulo\.libs\*.dll %SP_DIR%\assimulo\lib
 if errorlevel 1 exit 1
+

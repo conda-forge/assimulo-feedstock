@@ -9,9 +9,8 @@ source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
   sha256: 41b685f7306c38932f2fa1327eb19e2d9a6cfc57d1c8c5a4815dcd32d54289ef
 
-
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -36,6 +35,8 @@ test:
   imports:
     - assimulo
     - assimulo.solvers
+    - assimulo.solvers.euler
+    - assimulo.solvers.odepack
   requires:
     - nose
 
