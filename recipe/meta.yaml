@@ -10,14 +10,16 @@ source:
   sha256: 41b685f7306c38932f2fa1327eb19e2d9a6cfc57d1c8c5a4815dcd32d54289ef
   patches:
     - sundials6.patch
+    - debug.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}  # [unix]
     - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
     - {{ compiler('m2w64_fortran') }}  # [win]
   host:
     - libblas
