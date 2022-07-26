@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
   sha256: 41b685f7306c38932f2fa1327eb19e2d9a6cfc57d1c8c5a4815dcd32d54289ef
+  patches:
+    - sundials6.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -24,7 +26,7 @@ requirements:
     - pip
     - numpy
     - cython
-    - sundials 5.*
+    - sundials
   run:
     - python
     - {{ pin_compatible('numpy') }}
