@@ -1,4 +1,4 @@
-{% set version = "3.2.9" %}
+{% set version = "3.3" %}
 
 
 package:
@@ -7,12 +7,10 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
-  sha256: 41b685f7306c38932f2fa1327eb19e2d9a6cfc57d1c8c5a4815dcd32d54289ef
-  patches:
-    - sundials6.patch
+  sha256: 871741bf8314deb6860570011f1d095f7fa56bcad9bc60d4860f1e951b57f179
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
