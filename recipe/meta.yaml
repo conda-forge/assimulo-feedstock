@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
   sha256: 871741bf8314deb6860570011f1d095f7fa56bcad9bc60d4860f1e951b57f179
+  patches:
+    - fflags.patch
 
 build:
   number: 1
