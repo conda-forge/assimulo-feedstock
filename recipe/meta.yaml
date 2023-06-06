@@ -8,12 +8,16 @@ package:
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
   sha256: 585ae631947128bae3488993bc58ef6048ca70a2d0f88ed023e6d3f39288e26c
+  patches:
+    # ld: cannot find -lblas_OPENMP
+    - link.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
