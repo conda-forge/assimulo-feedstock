@@ -41,7 +41,7 @@ test:
     - nose
 
 about:
-  home: http://www.jmodelica.org/assimulo
+  home: https://github.com/modelon-community/Assimulo
   license: LGPL-3.0-only
   license_family: LGPL
   license_file: LICENSE
