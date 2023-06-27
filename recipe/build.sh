@@ -11,4 +11,6 @@ make CC=${CC} CFLAGS="-O2 -fPIC ${MPLIB}" BLASLIB="-lblas" PLAT="_OPENMP" MPLIB=
 mv SRC include
 cd -
 
-TERM=VT220 ${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --extra-fortran-compile-flags="-fallow-argument-mismatch" --superlu-home=${PWD}/SuperLU_MT_3.1 --log=DEBUG
+sed -i '' 's|L.warning|print|g' setup.py
+sed -i '' 's|L.debug|print|g' setup.py
+${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --extra-fortran-compile-flags="-fallow-argument-mismatch" --superlu-home=${PWD}/SuperLU_MT_3.1 --log=DEBUG
