@@ -1,0 +1,46 @@
+diff --git a/src/lib/sundials_includes.pxd b/src/lib/sundials_includes.pxd
+index bab921c..f1e43ac 100644
+--- a/src/lib/sundials_includes.pxd
++++ b/src/lib/sundials_includes.pxd
+@@ -434,13 +434,20 @@ IF SUNDIALS_VERSION >= (3,0,0):
+         ctypedef int (*CVSpilsPrecSolveFn)(realtype t, N_Vector y, N_Vector fy,
+ 				  N_Vector r, N_Vector z,
+ 				  realtype gamma, realtype delta, int lr, void *user_data)
+-    
+-    
++
++
+     IF SUNDIALS_WITH_SUPERLU:
+-        cdef extern from "sunlinsol/sunlinsol_superlumt.h":
+-            SUNLinearSolver SUNSuperLUMT(N_Vector y, SUNMatrix A, int num_threads)
++        IF SUNDIALS_VERSION >= (6,0,0):
++            cdef extern from "sunlinsol/sunlinsol_superlumt.h":
++                SUNLinearSolver SUNLinSol_SuperLUMT(N_Vector y, SUNMatrix A, int num_threads, SUNContext ctx)
++        ELSE:
++            cdef extern from "sunlinsol/sunlinsol_superlumt.h":
++                SUNLinearSolver SUNSuperLUMT(N_Vector y, SUNMatrix A, int num_threads)
+     ELSE:
+-        cdef inline SUNLinearSolver SUNSuperLUMT(N_Vector y, SUNMatrix A, int num_threads): return NULL
++        IF SUNDIALS_VERSION >= (6,0,0):
++            cdef inline SUNLinearSolver SUNLinSol_SuperLUMT(N_Vector y, SUNMatrix A, int num_threads, SUNContext ctx): return NULL
++        ELSE:
++            cdef inline SUNLinearSolver SUNSuperLUMT(N_Vector y, SUNMatrix A, int num_threads): return NULL
+     
+     cdef inline int cv_spils_jtsetup_dummy(realtype t, N_Vector y, N_Vector fy, void *user_data): return 0    
+     cdef inline tuple version(): return (3,0,0)
+diff --git a/src/solvers/sundials.pyx b/src/solvers/sundials.pyx
+index 4cf1f53..7927f5a 100644
+--- a/src/solvers/sundials.pyx
++++ b/src/solvers/sundials.pyx
+@@ -2378,9 +2378,10 @@ cdef class CVode(Explicit_ODE):
+             IF SUNDIALS_VERSION >= (3,0,0):
+                 IF SUNDIALS_VERSION >= (6,0,0):
+                     self.sun_matrix = SUNDIALS.SUNSparseMatrix(self.pData.dim, self.pData.dim, self.problem_info["jac_fcn_nnz"], CSC_MAT, ctx)
++                    self.sun_linearsolver = SUNDIALS.SUNLinSol_SuperLUMT(self.yTemp, self.sun_matrix, self.options["num_threads"], ctx)
+                 ELSE:
+                     self.sun_matrix = SUNDIALS.SUNSparseMatrix(self.pData.dim, self.pData.dim, self.problem_info["jac_fcn_nnz"], CSC_MAT)
+-                self.sun_linearsolver = SUNDIALS.SUNSuperLUMT(self.yTemp, self.sun_matrix, self.options["num_threads"])
++                    self.sun_linearsolver = SUNDIALS.SUNSuperLUMT(self.yTemp, self.sun_matrix, self.options["num_threads"])
+                 IF SUNDIALS_VERSION >= (4,0,0):
+                     flag = SUNDIALS.CVodeSetLinearSolver(self.cvode_mem, self.sun_linearsolver, self.sun_matrix)
+                 ELSE:

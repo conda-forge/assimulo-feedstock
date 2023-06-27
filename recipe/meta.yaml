@@ -11,9 +11,11 @@ source:
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
+    # call to undeclared function 'SUNSuperLUMT'
+    - slu6.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
