@@ -13,6 +13,8 @@ source:
     - link.patch
     # call to undeclared function 'SUNSuperLUMT'
     - slu6.patch
+    # Cannot assign type 'int (int, int, double, double *, double *, void *) except? -1' to 'FP_event_func'
+    - cython3.patch
 
 build:
   number: 3
@@ -21,7 +23,7 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython <3                              # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - make  # [unix]
     - {{ compiler('c') }}
@@ -33,7 +35,7 @@ requirements:
     - python
     - pip
     - numpy
-    - cython <3
+    - cython
     - sundials
   run:
     - python
