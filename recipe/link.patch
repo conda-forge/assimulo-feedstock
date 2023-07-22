@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index db510cb..d8f0d2b 100644
+index db510cb..27862b2 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -361,7 +361,9 @@ class Assimulo_prepare(object):
@@ -8,7 +8,7 @@ index db510cb..d8f0d2b 100644
              #    self.superLUFiles.append(self.BLASname)
 -            
 +            if "win" in self.platform:
-+                self.superLUFiles.append("blas.lib")
++                self.superLUFiles.append("blas")
 +
              L.debug("SuperLU files: "+str(self.superLUFiles))
              
