@@ -15,7 +15,7 @@ source:
     - slu6.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -24,6 +24,8 @@ requirements:
     - cython <3                              # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - make  # [unix]
+    - cmake
+    - ninja
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
@@ -49,6 +51,12 @@ test:
     - assimulo.solvers.odepack
   requires:
     - nose
+  files:
+    - cvode_basic.py
+    - cvode_with_jac_sparse.py
+  commands:
+    - python cvode_basic.py
+    - python cvode_with_jac_sparse.py
 
 about:
   home: https://github.com/modelon-community/Assimulo
