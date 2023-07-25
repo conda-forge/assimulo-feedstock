@@ -13,9 +13,11 @@ source:
     - link.patch
     # call to undeclared function 'SUNSuperLUMT'
     - slu6.patch
+    # blas detection
+    - check_blas.patch
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
