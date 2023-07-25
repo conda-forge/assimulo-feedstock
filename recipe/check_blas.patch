@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index db510cb..a52bd6f 100644
+--- a/setup.py
++++ b/setup.py
+@@ -286,7 +286,7 @@ class Assimulo_prepare(object):
+             if "mac" in self.platform:
+                 suffix = ".dylib"
+                 
+-            if not os.path.exists(os.path.join(self.BLASdir,self.BLASname_t+'.a')) and not os.path.exists(os.path.join(self.BLASdir,self.BLASname_t+suffix)):
++            if not os.path.exists(os.path.join(self.BLASdir,self.BLASname_t+'.a')) and not os.path.exists(os.path.join(self.BLASdir,self.BLASname_t+suffix)) and not os.path.exists(os.path.join(self.BLASdir,self.BLASname+suffix)):
+                 L.warning("Could not find BLAS"+msg)
+                 L.debug("Could not find BLAS at the given path {}.".format(self.BLASdir))
+                 L.debug("usage: --blas-home=path")
