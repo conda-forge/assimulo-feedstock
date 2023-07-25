@@ -15,6 +15,7 @@ source:
     - slu6.patch
     # blas detection
     - check_blas.patch
+    - glimda.patch
 
 build:
   number: 5
