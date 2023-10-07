@@ -1,18 +1,16 @@
 #!/bin/sh
 
 # local superlu install
-curl -fSsL https://portal.nersc.gov/project/sparse/superlu/superlu_mt_3.1.tar.gz | tar xz
-cd SuperLU_MT_3.1
-if test `uname` = "Linux"
-then
-  MPLIB="-fopenmp"
-fi
-make CC=${CC} CFLAGS="-O2 -fPIC ${MPLIB}" BLASLIB="-lblas" PLAT="_OPENMP" MPLIB=${MPLIB} lib -j1
-mv SRC include
-cd -
+git clone --depth 1 https://github.com/xiaoyeli/superlu_mt.git
+cmake -LAH -G "Ninja" -B build_slu -S superlu_mt \
+  -DCMAKE_PREFIX_PATH=${PREFIX} \
+  -DCMAKE_INSTALL_PREFIX=${SRC_DIR}/install_slu \
+  -DSUPERLUMT_INSTALL_INCLUDEDIR=${SRC_DIR}/install_slu/include \
+  -DPLAT="_OPENMP" -DBUILD_SHARED_LIBS=OFF
+cmake --build build_slu --target install
 
 # some logs are missing
 sed -i.bak 's|L.warning|print|g' setup.py
 sed -i.bak 's|L.debug|print|g' setup.py
 
-${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --extra-fortran-compile-flags="-fallow-argument-mismatch" --superlu-home=${PWD}/SuperLU_MT_3.1
+${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --extra-fortran-compile-flags="-fallow-argument-mismatch" --superlu-home=${SRC_DIR}/install_slu
