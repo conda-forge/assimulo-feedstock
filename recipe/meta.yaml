@@ -24,6 +24,7 @@ requirements:
     - cmake
     - ninja
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
   host:
