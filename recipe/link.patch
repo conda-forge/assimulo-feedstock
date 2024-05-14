@@ -1,18 +1,20 @@
 diff --git a/setup.py b/setup.py
-index b3546c2..834ae13 100644
+index ffb58a6..8458278 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -362,6 +362,9 @@ class Assimulo_prepare(object):
+@@ -359,7 +359,10 @@ class Assimulo_prepare(object):
+                     
              #if self.with_BLAS:
              #    self.superLUFiles.append(self.BLASname)
- 
+-            
++
 +            if "win" in self.platform:
 +                self.superLUFiles.append("blas")
 +
-             L.debug("SuperLU files: "+str(self.superLUFiles))
- 
+             logging.debug("SuperLU files: "+str(self.superLUFiles))
+             
          else:
-@@ -538,11 +541,11 @@ class Assimulo_prepare(object):
+@@ -547,11 +550,11 @@ class Assimulo_prepare(object):
          if self.with_SLU:
              if 'win' in self.platform:
                  ext_list[-1].library_dirs = [os.path.join(self.SLUincdir, "..", "lib"), self.libdirs]
@@ -27,7 +29,7 @@ index b3546c2..834ae13 100644
                  ext_list[-1].extra_compile_args = ["-D__RADAU5_WITH_SUPERLU"]
          else:
              if 'win' not in self.platform:
-@@ -571,6 +574,9 @@ class Assimulo_prepare(object):
+@@ -580,6 +583,9 @@ class Assimulo_prepare(object):
                      openmp_arg = "-fopenmp"
                  el.extra_link_args.append(openmp_arg)
                  el.extra_compile_args.append(openmp_arg)
