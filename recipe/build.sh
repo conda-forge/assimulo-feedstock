@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # local superlu install
-git clone --depth 1 https://github.com/xiaoyeli/superlu_mt.git
+git clone -b v4.0.0 --depth 1 https://github.com/xiaoyeli/superlu_mt.git
 cmake -LAH -G "Ninja" -B build_slu -S superlu_mt \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_INSTALL_PREFIX=${SRC_DIR}/install_slu \
