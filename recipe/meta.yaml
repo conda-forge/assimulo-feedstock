@@ -1,4 +1,4 @@
-{% set version = "3.4.3" %}
+{% set version = "3.5.0" %}
 
 
 package:
@@ -7,23 +7,26 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
-  sha256: 1f4d6fdde384c36bc8297e639cc5ece98817e6bbbe7e54e21ed20b1ff8f6fe7f
+  sha256: 28cf6c15eca95f59201cdba2958082d46c07ca7d458ffdd02cc512e9afee226b
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
+    # link sundials_core lib
+    - core.patch
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython <3                              # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - cmake
     - ninja
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
   host:
@@ -32,7 +35,7 @@ requirements:
     - python
     - pip
     - numpy
-    - cython <3
+    - cython
     - sundials
   run:
     - python
