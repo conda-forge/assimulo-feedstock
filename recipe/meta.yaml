@@ -15,7 +15,7 @@ source:
     - core.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -39,7 +39,6 @@ requirements:
     - sundials
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - scipy
     - sundials
 
