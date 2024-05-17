@@ -22,7 +22,7 @@ cmake --build build_slu --target install
 git clone -b skbuild https://github.com/jschueller/Assimulo.git
 cmake ${CMAKE_FLAGS} -LAH -G "Ninja" -B build -S Assimulo \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
-  -DCMAKE_INSTALL_PATH=${PREFIX} \
+  -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DSUPERLUMT_LIBRARY=${SRC_DIR}/install_slu/lib/libsuperlu_mt_OPENMP.a \
   -DSUPERLUMT_INCLUDE_DIR=${SRC_DIR}/install_slu/include
 cmake --build build --target install
