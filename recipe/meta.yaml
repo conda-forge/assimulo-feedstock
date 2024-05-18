@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py>=3.12]
+  skip: true  # [py>=312]
 
 requirements:
   build:
