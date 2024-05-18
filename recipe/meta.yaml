@@ -30,13 +30,13 @@ requirements:
   host:
     - libblas
     - liblapack
-    - python < 3.12
+    - python <3.12
     - pip
     - numpy
     - cython
     - sundials
   run:
-    - python < 3.12
+    - python <3.12
     - {{ pin_compatible('numpy') }}
     - scipy
     - sundials
