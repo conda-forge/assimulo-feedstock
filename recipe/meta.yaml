@@ -14,6 +14,7 @@ source:
 
 build:
   number: 0
+  skip: true  # [py>=3.12]
 
 requirements:
   build:
@@ -30,13 +31,13 @@ requirements:
   host:
     - libblas
     - liblapack
-    - python <3.12
+    - python
     - pip
     - numpy
     - cython
     - sundials
   run:
-    - python <3.12
+    - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - sundials
