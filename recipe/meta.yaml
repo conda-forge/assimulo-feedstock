@@ -11,8 +11,6 @@ source:
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
-    # link sundials_core lib
-    - core.patch
 
 build:
   number: 0
