@@ -14,4 +14,4 @@ cmake --build build_slu --target install
 sed -i.bak 's|L.warning|print|g' setup.py
 sed -i.bak 's|L.debug|print|g' setup.py
 
-${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --extra-fortran-compile-flags="-fallow-argument-mismatch" --superlu-home=${SRC_DIR}/install_slu
+${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --superlu-home=${SRC_DIR}/install_slu
