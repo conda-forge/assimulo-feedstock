@@ -19,6 +19,8 @@ git clone -b skbuild https://github.com/jschueller/Assimulo.git
 cmake -LAH -G "Ninja" -B build -S Assimulo ^
   -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX:\=/% ^
   -DCMAKE_INSTALL_PATH=%LIBRARY_PREFIX:\=/% ^
+  -DPython_FIND_STRATEGY=LOCATION ^
+  -DPython_ROOT_DIR="%PREFIX%" ^
   -DCMAKE_EXE_LINKER_FLAGS="" ^
   -DPYTHON_SITE_PACKAGE=%SP_DIR:\=/% ^
   -DSUPERLUMT_LIBRARY=%SRC_DIR:\=/%/install_slu/lib/superlu_mt_OPENMP.lib ^
