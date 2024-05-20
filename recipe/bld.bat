@@ -4,6 +4,7 @@ git clone -b v4.0.1 --depth 1 https://github.com/xiaoyeli/superlu_mt.git
 cmake -LAH -G "Ninja" -B build_slu -S superlu_mt ^
   -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX:\=/% ^
   -DCMAKE_INSTALL_PREFIX="%SRC_DIR:\=/%/install_slu" ^
+  -DCMAKE_BUILD_TYPE=Release ^
   -DSUPERLUMT_INSTALL_INCLUDEDIR="%SRC_DIR:\=/%/install_slu/include" ^
   -DPLAT="_OPENMP" -DBUILD_SHARED_LIBS=OFF -Denable_tests=OFF -Denable_examples=OFF
 cmake --build build_slu --target install
@@ -14,12 +15,13 @@ rem
 rem  :: missing dlls
 rem  xcopy %SP_DIR%\assimulo\.libs\*.dll %SP_DIR%\assimulo\lib
 rem  if errorlevel 1 exit 1
-rem eeff
+rem eefif
 
 git clone -b skbuild https://github.com/jschueller/Assimulo.git
 cmake -LAH -G "Ninja" -B build -S Assimulo ^
   -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX:\=/% ^
   -DCMAKE_INSTALL_PATH=%LIBRARY_PREFIX:\=/% ^
+  -DCMAKE_BUILD_TYPE=Release ^
   -DPython_FIND_STRATEGY=LOCATION ^
   -DPython_ROOT_DIR="%PREFIX%" ^
   -DCMAKE_EXE_LINKER_FLAGS="" ^
