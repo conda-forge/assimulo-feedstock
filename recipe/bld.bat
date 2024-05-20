@@ -14,6 +14,7 @@ rem
 rem  :: missing dlls
 rem  xcopy %SP_DIR%\assimulo\.libs\*.dll %SP_DIR%\assimulo\lib
 rem  if errorlevel 1 exit 1
+rem eeff
 
 git clone -b skbuild https://github.com/jschueller/Assimulo.git
 cmake -LAH -G "Ninja" -B build -S Assimulo ^
