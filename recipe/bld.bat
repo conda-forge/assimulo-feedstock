@@ -29,6 +29,7 @@ cmake -LAH -G "Ninja" -B build -S Assimulo ^
   -DECMAKE_STATIC_LINKER_FLAGS_RELEASE="" ^
   -DECMAKE_MODULE_LINKER_FLAGS="" ^
   -DECMAKE_MODULE_LINKER_FLAGS_RELEASE="" ^
+  -DCMAKE_SHARED_LINKER_FLAGS="" ^
   -DPYTHON_SITE_PACKAGE=%SP_DIR:\=/% ^
   -DSUPERLUMT_LIBRARY=%SRC_DIR:\=/%/install_slu/lib/superlu_mt_OPENMP.lib ^
   -DSUPERLUMT_INCLUDE_DIR=%SRC_DIR:\=/%/install_slu/include
