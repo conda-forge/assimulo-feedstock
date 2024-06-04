@@ -3,7 +3,7 @@ c_compiler:
 c_stdlib:
 - vs
 channel_sources:
-- conda-forge
+- conda-forge/label/numpy_rc,conda-forge
 channel_targets:
 - conda-forge main
 libblas:
@@ -13,7 +13,7 @@ liblapack:
 m2w64_fortran_compiler:
 - m2w64-toolchain
 numpy:
-- '1.23'
+- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
