@@ -14,4 +14,6 @@ cmake --build build_slu --target install
 sed -i.bak 's|L.warning|print|g' setup.py
 sed -i.bak 's|L.debug|print|g' setup.py
 
-${PYTHON} setup.py install --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --superlu-home=${SRC_DIR}/install_slu
+# python setup.py install fails on osx so build wheel first
+${PYTHON} setup.py bdist_wheel --sundials-home=${PREFIX} --blas-home=${PREFIX}/lib --lapack-home=${PREFIX}/lib --superlu-home=${SRC_DIR}/install_slu
+${PYTHON} -m pip install build/dist/*.whl --no-deps -vv

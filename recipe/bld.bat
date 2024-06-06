@@ -12,6 +12,4 @@ cmake --build build_slu --target install
 if errorlevel 1 exit 1
 
 :: missing dlls
-xcopy %SP_DIR%\assimulo\.libs\*.dll %SP_DIR%\assimulo\lib
-if errorlevel 1 exit 1
-
+if exist "%SP_DIR%\assimulo\lib\odassl.cp%CONDA_PY%-win_amd64.pyd" xcopy %SP_DIR%\assimulo\.libs\*.dll %SP_DIR%\assimulo\lib

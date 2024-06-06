@@ -15,9 +15,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import numpy as N
+import numpy as np
 import scipy.sparse as SP
-import nose
 from assimulo.solvers import CVode
 from assimulo.problem import Explicit_Problem
 
@@ -50,7 +49,7 @@ def run_example(with_plots=True):
         yd_0 = -0.04*y[0] + 1e4*y[1]*y[2]
         yd_2 = 3e7*y[1]*y[1]
         yd_1 = -yd_0 - yd_2
-        return N.array([yd_0,yd_1,yd_2])
+        return np.array([yd_0,yd_1,yd_2])
     
     #Defines the Jacobian
     def jac(t,y):
@@ -93,7 +92,7 @@ def run_example(with_plots=True):
         P.show()
     
     #Basic tests
-    nose.tools.assert_almost_equal(y[-1][0],0.9851,3)
+    np.testing.assert_almost_equal(y[-1][0],0.9851,3)
     
     return exp_mod, exp_sim
 
