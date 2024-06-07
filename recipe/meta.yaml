@@ -15,6 +15,7 @@ source:
 build:
   number: 1
   skip: true  # [py>=312]
+  skip: True  # [python_impl == 'pypy']
 
 requirements:
   build:
