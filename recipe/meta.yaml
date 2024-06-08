@@ -16,7 +16,7 @@ source:
 
 build:
   number: 2
-  skip: True  # [python_impl == 'pypy']
+  skip: True  # [python_impl == 'pypy' or ppc64le]
 
 requirements:
   build:
