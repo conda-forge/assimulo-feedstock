@@ -26,8 +26,8 @@ requirements:
     - ninja
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('fortran') }}  # [unix]
-    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('fortran') }}  # [unix and py<312]
+    - {{ compiler('m2w64_fortran') }}  # [win and py<312]
   host:
     - libblas
     - liblapack
