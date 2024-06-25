@@ -1,4 +1,4 @@
-{% set version = "3.5.1" %}
+{% set version = "3.5.2" %}
 
 
 package:
@@ -7,15 +7,13 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
-  sha256: 356a78953f13172f64fd040aceda7c00216e99766ac0758eaaec07d5fdf394f7
+  sha256: 5c4f845f180053e583ea27f26f64e2b3869838b215e1f49844974ba7c703e2df
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
-    # https://github.com/modelon-community/Assimulo/pull/98
-    - distutils.patch  # [py>=312]
 
 build:
-  number: 2
+  number: 0
   skip: True  # [python_impl == 'pypy' or ppc64le]
 
 requirements:
@@ -28,8 +26,8 @@ requirements:
     - ninja
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('fortran') }}  # [unix]
-    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('fortran') }}  # [unix and py<312]
+    - {{ compiler('m2w64_fortran') }}  # [win and py<312]
   host:
     - libblas
     - liblapack
