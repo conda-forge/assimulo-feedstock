@@ -29,6 +29,7 @@ requirements:
     - {{ compiler('fortran') }}  # [unix and py<312]
     - {{ compiler('m2w64_fortran') }}  # [win and py<312]
   host:
+    - setuptools
     - libblas
     - liblapack
     - python
