@@ -13,7 +13,7 @@ source:
     - link.patch
 
 build:
-  number: 1
+  number: 2
   skip: True  # [python_impl == 'pypy' or ppc64le]
 
 requirements:
