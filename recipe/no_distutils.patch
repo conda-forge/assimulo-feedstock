@@ -1,0 +1,12 @@
+diff --git a/setup.py b/setup.py
+index faccfec..031f7ac 100644
+--- a/setup.py
++++ b/setup.py
+@@ -24,6 +24,7 @@ import argparse
+ from os.path import isfile, join
+ import numpy as np
+ try:
++    import please_drop_numpy_distutils
+     from numpy.distutils.core import setup
+     import numpy.distutils as nd
+     from numpy.distutils.fcompiler import intel

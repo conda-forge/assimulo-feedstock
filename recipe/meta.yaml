@@ -11,9 +11,11 @@ source:
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
+    # disable numpy.distutils as its deprecated and fails to build
+    - no_distutils.patch
 
 build:
-  number: 1
+  number: 2
   skip: True  # [python_impl == 'pypy' or ppc64le]
 
 requirements:
@@ -26,8 +28,6 @@ requirements:
     - ninja
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('fortran') }}  # [unix and py<312]
-    - {{ compiler('m2w64_fortran') }}  # [win and py<312]
   host:
     - setuptools
     - libblas
@@ -47,7 +47,6 @@ test:
     - assimulo
     - assimulo.solvers
     - assimulo.solvers.euler
-    - assimulo.solvers.odepack  # [py<312]
   files:
     - cvode_basic.py
     - cvode_with_jac_sparse.py

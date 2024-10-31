@@ -11,5 +11,3 @@ cmake --build build_slu --target install
 "%PYTHON%" setup.py install --sundials-home=%LIBRARY_PREFIX% --blas-home=%LIBRARY_PREFIX%\lib --lapack-home=%LIBRARY_PREFIX%\lib --superlu-home=%SRC_DIR%\install_slu
 if errorlevel 1 exit 1
 
-:: missing dlls
-if exist "%SP_DIR%\assimulo\lib\odassl.cp%CONDA_PY%-win_amd64.pyd" xcopy %SP_DIR%\assimulo\.libs\*.dll %SP_DIR%\assimulo\lib
