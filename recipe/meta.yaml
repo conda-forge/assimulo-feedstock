@@ -1,4 +1,4 @@
-{% set version = "3.5.2" %}
+{% set version = "3.6.0" %}
 
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
-  sha256: 5c4f845f180053e583ea27f26f64e2b3869838b215e1f49844974ba7c703e2df
+  sha256: d1fc9fa1bb2921290de014dcda1fa04cdb85c1be613df225e75bbb5ed4e06ae4
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
@@ -15,7 +15,7 @@ source:
     - no_distutils.patch
 
 build:
-  number: 2
+  number: 0
   skip: True  # [python_impl == 'pypy' or ppc64le]
 
 requirements:
