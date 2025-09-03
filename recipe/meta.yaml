@@ -1,4 +1,4 @@
-{% set version = "3.7.1" %}
+{% set version = "3.7.2" %}
 
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
-  sha256: dff8fdb1c7d85ca972c8adc6f473685101d49f1bcaae31b7ae307e5a9d18833a
+  sha256: 391ee8e7cd4ec768de0fcf4ba39c5ef1928f67b3f3d1391019c381322321899c
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
