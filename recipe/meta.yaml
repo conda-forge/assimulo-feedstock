@@ -47,12 +47,9 @@ test:
     - assimulo
     - assimulo.solvers
     - assimulo.solvers.euler
-  files:
-    - cvode_basic.py
-    - cvode_with_jac_sparse.py
   commands:
-    - python cvode_basic.py
-    - python cvode_with_jac_sparse.py
+    - python -c "from assimulo.examples import cvode_basic; cvode_basic.run_example(with_plots=False)"
+    - python -c "from assimulo.examples import cvode_with_jac_sparse; cvode_with_jac_sparse.run_example(with_plots=False)"
 
 about:
   home: https://github.com/modelon-community/Assimulo
