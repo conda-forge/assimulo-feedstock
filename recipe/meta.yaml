@@ -1,4 +1,4 @@
-{% set version = "3.7.2" %}
+{% set version = "3.7.3" %}
 
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-{{ version }}.tar.gz
-  sha256: 391ee8e7cd4ec768de0fcf4ba39c5ef1928f67b3f3d1391019c381322321899c
+  sha256: b12d04b4fb0a41e68247731a695be5b31b064db2006ec1d650cdd6816e9dd610
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
@@ -15,7 +15,7 @@ source:
     - no_distutils.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [python_impl == 'pypy' or ppc64le]
 
 requirements:
@@ -47,12 +47,9 @@ test:
     - assimulo
     - assimulo.solvers
     - assimulo.solvers.euler
-  files:
-    - cvode_basic.py
-    - cvode_with_jac_sparse.py
   commands:
-    - python cvode_basic.py
-    - python cvode_with_jac_sparse.py
+    - python -c "from assimulo.examples import cvode_basic; cvode_basic.run_example(with_plots=False)"
+    - python -c "from assimulo.examples import cvode_with_jac_sparse; cvode_with_jac_sparse.run_example(with_plots=False)"
 
 about:
   home: https://github.com/modelon-community/Assimulo
