@@ -1,5 +1,5 @@
 context:
-  version: "3.7.3"
+  version: "3.8.0"
 
 package:
   name: assimulo
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/modelon-community/Assimulo/archive/refs/tags/Assimulo-${{ version }}.tar.gz
-  sha256: b12d04b4fb0a41e68247731a695be5b31b064db2006ec1d650cdd6816e9dd610
+  sha256: d87966ccc47ddf6514706a61504007ec760b0601457fffb1b3c645fd85505434
   patches:
     # ld: cannot find -lblas_OPENMP
     - link.patch
@@ -15,7 +15,7 @@ source:
     - no_distutils.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
